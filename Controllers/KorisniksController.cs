@@ -134,6 +134,13 @@ namespace HackAtHome.Controllers
             return View(korisnik);
         }
 
+        //Dodaj Zahtjev
+
+        public async Task<IActionResult> DodajZahtjev()
+        {
+            return View();
+        }
+
         // POST: Korisniks/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

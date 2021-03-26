@@ -78,6 +78,7 @@
     <None Include="Views\template\.git\objects\f7\936cc1e789eea5438d576d6b12de20191da09d" />
     <None Include="Views\template\.git\refs\heads\master" />
     <None Include="Views\template\.git\refs\remotes\origin\master" />
+    <None Include="wwwroot\photo-1582803824594-65b5b4632cad.jpg" />
   </ItemGroup>
 
   <ItemGroup>
