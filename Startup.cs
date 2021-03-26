@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using AspNetCoreMVC.Models;
+using HackAtHome.Models;
 
 namespace HackAtHome
 {
@@ -31,7 +32,7 @@ namespace HackAtHome
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DbConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddIdentity<NasUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddDbContext<HackAtHomeContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DbConnection")));

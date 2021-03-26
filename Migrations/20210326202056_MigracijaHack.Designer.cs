@@ -3,14 +3,16 @@ using AspNetCoreMVC.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HackAtHome.Migrations
 {
     [DbContext(typeof(HackAtHomeContext))]
-    partial class HackAtHomeContextModelSnapshot : ModelSnapshot
+    [Migration("20210326202056_MigracijaHack")]
+    partial class MigracijaHack
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

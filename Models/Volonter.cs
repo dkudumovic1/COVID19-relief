@@ -7,11 +7,10 @@ namespace HackAtHome.Models
 {
     public class Volonter
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
         public string BrojTelefona { get; set; }
-        public string Mail { get; set; }
         public string Grad { get; set; }
         public string Opis { get; set; }
         public bool MedicinskiRadnik { get; set; }

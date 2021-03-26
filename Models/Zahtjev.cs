@@ -7,7 +7,7 @@ namespace HackAtHome.Models
 {
     public class Zahtjev
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string VrstaPomoci { get; set; }
         public string Opis { get; set; }
     }
