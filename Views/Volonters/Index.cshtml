@@ -1,0 +1,101 @@
+﻿@model IEnumerable<HackAtHome.Models.Volonter>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prezime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BrojTelefona)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Opis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MedicinskiRadnik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dostava)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tutor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZnakovniJezik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vakcinisan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GeografskaSirina)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GeografskaDuzina)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prezime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrojTelefona)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedicinskiRadnik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dostava)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tutor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZnakovniJezik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vakcinisan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GeografskaSirina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GeografskaDuzina)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

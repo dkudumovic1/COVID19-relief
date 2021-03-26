@@ -1,0 +1,78 @@
+﻿@model HackAtHome.Models.Korisnik
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Korisnik</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Prezime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Prezime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BrojTelefona)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BrojTelefona)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Grad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Grad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OsobaSaPoteskocamaSluha)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OsobaSaPoteskocamaSluha)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OsobaUIzolaciji)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OsobaUIzolaciji)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StarijaOsoba)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StarijaOsoba)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Dijete)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dijete)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GeografskaSirina)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GeografskaSirina)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GeografskaDuzina)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GeografskaDuzina)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
