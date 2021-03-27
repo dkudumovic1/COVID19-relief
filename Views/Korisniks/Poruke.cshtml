@@ -3,19 +3,26 @@
     ViewData["Title"] = "Poruke";
 }
 
-    <body style="background-color: #455a64">
-        <h1>@Html.Raw((ViewData["poruka"]))</h1>
-        <br />
-        <br />
-        <br />
-       
-        <br />
-        <br />
-        <div id="map"></div>
-        <br><br>
-        <div id="task" style="display:none">
+    <head>
+        <link rel="stylesheet" href="~/css/assets/css/PorukeStyle.css">
+    </head>
+    <body>
+        <div id="prviDiv">
+            <div id="drugiDiv">
+
+
+            </div>
+            <div id="treciDiv">
+                <h1>@Html.Raw((ViewData["poruka"]))</h1>
+            </div>
 
         </div>
+        
+        
+  
+        
+       
+
 
     </body>
     

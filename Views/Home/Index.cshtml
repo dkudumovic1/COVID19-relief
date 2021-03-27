@@ -139,6 +139,7 @@
                             <p><a asp-action="Details" asp-controller="Korisniks" class="btn btn-primary" role="button" id="dugme1" style="background-color: rgba(69,90,100,255); color: white;">Pregled profila</a></p>
                             <p><a asp-action="Create" asp-controller="Zahtjevs" class="btn btn-primary" role="button" id="dugme" style="background-color: rgba(69,90,100,255);color: white;">Kreiraj zahtjev</a></p>
                             <p><a asp-action="Index" asp-controller="Zahtjevs" class="btn btn-primary" role="button" id="dugme" style="background-color:rgba(69,90,100,255);color: white;">Pregled mojih zahtjeva</a></p>
+
                         }
 
                         @if (User.Identity.IsAuthenticated && (User.IsInRole("Volonter1") || User.IsInRole("Volonter2")))
@@ -147,6 +148,7 @@
                             <p><a asp-action="Index" asp-controller="Zahtjevs" class="btn btn-primary" role="button" id="dugme" style="background-color: rgba(69,90,100,255);color: white;">Pregled svih zahtjeva</a></p>
                             <p><a asp-action="PregledZahtjeva" asp-controller="Volonters" class="btn btn-primary" role="button" id="dugme" style="background-color: rgba(69,90,100,255);color: white;">Prikaz mape zahtjeva</a></p>
                         }
+                        <p><a asp-action="Poruke" asp-controller="Korisniks" class="btn btn-primary" role="button" id="dugme" style="background-color: rgba(69,90,100,255);color: white;">Motiviraj se!</a></p>
 
                     </div>
                 </div>
@@ -236,6 +238,9 @@
                     </a>
                 </div>
             }
+
+
+
 
         </div>
 

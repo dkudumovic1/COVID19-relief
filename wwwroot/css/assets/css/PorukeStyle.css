@@ -1,0 +1,21 @@
+﻿#prviDiv {
+    background-color: rgba(69,90,100,255);
+}
+
+#drugiDiv {
+    background-image: url(../img/lisce.jpeg);
+    min-height: 500px;
+    min-width:500px;
+
+    
+    margin-left: auto;
+    margin-right: auto;
+    
+    color: white;
+    background-color: white;
+}
+
+#treciDiv {
+    color: rgba(69,90,100,255);
+    background-color: white;
+}
