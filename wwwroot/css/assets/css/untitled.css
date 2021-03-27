@@ -4,3 +4,7 @@
   background-size: cover;
 }
 
+#pozadinskaSlika {
+    background-image: url(../img/pic.jpg);
+    min-height : 5px;
+}
