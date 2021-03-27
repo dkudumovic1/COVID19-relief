@@ -161,8 +161,9 @@ namespace HackAtHome.Controllers
         public async Task<IActionResult> PregledZahtjeva()
         {
             var korisnici = new List<Korisnik>();
-            korisnici.Add(new Korisnik(1, "Korisnik 1", "", "Sarajevo", "43.8563", "18.4131"));
-            korisnici.Add(new Korisnik(2, "Korisnik 2", "", "Sarajevo", "45.815399", "15.966568"));
+         
+        //    korisnici.Add(new Korisnik(1, "Korisnik 1", "", "Sarajevo", "43.8563", "18.4131"));
+        //    korisnici.Add(new Korisnik(2, "Korisnik 2", "", "Sarajevo", "45.815399", "15.966568"));
 
             ViewBag.korisnici = korisnici;
             return View();
