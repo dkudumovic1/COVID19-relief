@@ -56,6 +56,9 @@ h1, h2, h3, h4, h5, h6 { line-height: 2em;}
 }
 .shadow-top-down:hover { box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.25);}
 /***** Material Form Elements *****/
+.add-shadow {
+    text-shadow: 1px 1px 7px black, 0 0 25px #275267, 0 0 5px #275267;
+}
 form {
     max-width: 500px;
     margin: 0 auto;
@@ -158,6 +161,10 @@ nav.main-menu a:link, nav.main-menu a:hover, nav.main-menu a:focus, nav.main-men
     height: 70px;
     padding: 0px;
     outline: none;
+}
+.centriraj {
+    text-align: center;
+    background-color: rgba(255, 255, 255, .6)
 }
 /***** Home *****/
 #registerBtn {
@@ -299,6 +306,11 @@ nav.main-menu a:link, nav.main-menu a:hover, nav.main-menu a:focus, nav.main-men
     margin: auto;
 }
 /***** Element *****/
+#dugme1, #dugme{
+    width: 30%;
+    text-align: center;
+}
+
 #templatemo_element .container {
     background-color: #fff;
     margin-top: 40px;
@@ -336,10 +348,13 @@ nav.main-menu a:link, nav.main-menu a:hover, nav.main-menu a:focus, nav.main-men
     color: #fff;
 }
 #templatemo_contact form .form-group { margin-top: 30px;}
-#templatemo_contact form input.form-control,
-#templatemo_contact form button.form-control,
-#templatemo_contact form textarea.form-control ,
-#templatemo_contact form select.form-control { border-bottom: 3px solid #fff;color: #fff;}
+    #templatemo_contact form input.form-control,
+    #templatemo_contact form button.form-control,
+    #templatemo_contact form textarea.form-control,
+    #templatemo_contact form select.form-control {
+        border-bottom: 3px solid #fff;
+        color: #7de3f5;
+    }
 #templatemo_contact form input.form-control:focus,
 #templatemo_contact form button.form-control:focus,
 #templatemo_contact form textarea.form-control:focus { border-bottom-color: #275267;}

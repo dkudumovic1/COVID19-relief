@@ -60,7 +60,7 @@
                     {
                         <h1 class="text-center"> Pomozimo drugima</h1>
                     }
-                   
+
 
                 </div>
                 @if (!User.Identity.IsAuthenticated)
@@ -73,7 +73,7 @@
                     </div>
                 }
 
-               
+
 
                 @if (!User.Identity.IsAuthenticated)
                 {
@@ -91,30 +91,23 @@
                     </div>
                 }
                 <div id="pocetna">
-                    <div class="jumbotron">
+                    <div class="jumbotron centriraj">
                         @if (User.Identity.IsAuthenticated && (User.IsInRole("Korisnik1") || User.IsInRole("Korisnik2")))
                         {
                             <p><a asp-action="Details" asp-controller="Korisniks" class="btn btn-primary" role="button" id="dugme1" style="background-color: rgba(69,90,100,255); color: white;">Pregled profila</a></p>
-                        }
-
-                        @if (User.Identity.IsAuthenticated && (User.IsInRole("Volonter1") || User.IsInRole("Volonter2")))
-                        {
-                            <p><a asp-action="Details" asp-controller="Volonters" class="btn btn-primary" role="button" id="dugme1" style="background-color: rgba(69,90,100,255);color: white;">Pregled profila</a></p>
-                        }
-
-                        @if (User.Identity.IsAuthenticated && (User.IsInRole("Korisnik1") || User.IsInRole("Korisnik2")))
-                        {
                             <p><a asp-action="Create" asp-controller="Zahtjevs" class="btn btn-primary" role="button" id="dugme" style="background-color: rgba(69,90,100,255);color: white;">Kreiraj zahtjev</a></p>
                             <p><a asp-action="Index" asp-controller="Zahtjevs" class="btn btn-primary" role="button" id="dugme" style="background-color:rgba(69,90,100,255);color: white;">Pregled mojih zahtjeva</a></p>
                         }
 
                         @if (User.Identity.IsAuthenticated && (User.IsInRole("Volonter1") || User.IsInRole("Volonter2")))
                         {
+                            <p><a asp-action="Details" asp-controller="Volonters" class="btn btn-primary" role="button" id="dugme1" style="background-color: rgba(69,90,100,255);color: white;">Pregled profila</a></p>
                             <p><a asp-action="Index" asp-controller="Zahtjevs" class="btn btn-primary" role="button" id="dugme" style="background-color: rgba(69,90,100,255);color: white;">Pregled svih zahtjeva</a></p>
                         }
 
                     </div>
                 </div>
+            </div>
         </section>
     }
 
@@ -123,50 +116,43 @@
         <section id="templatemo_home2">
             <div class="container">
                 <div class="templatemo_home_inner_wapper">
-                   
+
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <h1 class="text-center"> Dobro došli!</h1>
+                        <h1 class="text-center add-shadow"> Dobro došli!</h1>
                     }
 
                 </div>
-               
+
                 @if (User.Identity.IsAuthenticated)
                 {
                     <div class="templatemo_home_inner_wapper">
                         <h2 class="text-center"></h2>
-                        <p class="text-center">
+                        <p class="text-center add-shadow">
                             Hvala Vam što u ovom neizvjesnom periodu bla bla dodajte nešto
                         </p>
                     </div>
                 }
 
-                
+
                 <div class="pocetna">
-                    <div class="jumbotron">
+                    <div class="jumbotron centriraj">
                         @if (User.Identity.IsAuthenticated && (User.IsInRole("Korisnik1") || User.IsInRole("Korisnik2")))
                         {
                             <p><a asp-action="Details" asp-controller="Korisniks" class="btn btn-primary" role="button" id="dugme1" style="background-color: rgba(69,90,100,255); color: white;">Pregled profila</a></p>
-                        }
-
-                        @if (User.Identity.IsAuthenticated && (User.IsInRole("Volonter1") || User.IsInRole("Volonter2")))
-                        {
-                            <p><a asp-action="Details" asp-controller="Volonters" class="btn btn-primary" role="button" id="dugme1" style="background-color: rgba(69,90,100,255);color: white;">Pregled profila</a></p>
-                        }
-
-                        @if (User.Identity.IsAuthenticated && (User.IsInRole("Korisnik1") || User.IsInRole("Korisnik2")))
-                        {
                             <p><a asp-action="Create" asp-controller="Zahtjevs" class="btn btn-primary" role="button" id="dugme" style="background-color: rgba(69,90,100,255);color: white;">Kreiraj zahtjev</a></p>
                             <p><a asp-action="Index" asp-controller="Zahtjevs" class="btn btn-primary" role="button" id="dugme" style="background-color:rgba(69,90,100,255);color: white;">Pregled mojih zahtjeva</a></p>
                         }
 
                         @if (User.Identity.IsAuthenticated && (User.IsInRole("Volonter1") || User.IsInRole("Volonter2")))
                         {
+                            <p><a asp-action="Details" asp-controller="Volonters" class="btn btn-primary" role="button" id="dugme1" style="background-color: rgba(69,90,100,255);color: white;">Pregled profila</a></p>
                             <p><a asp-action="Index" asp-controller="Zahtjevs" class="btn btn-primary" role="button" id="dugme" style="background-color: rgba(69,90,100,255);color: white;">Pregled svih zahtjeva</a></p>
                         }
 
                     </div>
                 </div>
+            </div>
         </section>
     }
 
