@@ -72,6 +72,8 @@ namespace HackAtHome.Controllers
                 var userFromDb = await _userManager.GetUserAsync(user);
                 if (userFromDb != null) zahtjev.CreatedByUserId = userFromDb.Id;
                 zahtjev.CreatedDateTime = DateTime.Now;
+                zahtjev.KorisnikId = userFromDb.KorisnikId;
+                zahtjev.CreatedByUserId = userFromDb.Id;
 
                 _context.Add(zahtjev);
                 await _context.SaveChangesAsync();

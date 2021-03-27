@@ -95,13 +95,15 @@
                 </div>
             }
 
-            @if (User.Identity.IsAuthenticated && (User.IsInRole("Korisnik1!") || User.IsInRole("Korisnik2!")))
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("Korisnik1") || User.IsInRole("Korisnik2")))
             {
-                <p><a asp-action="Create" asp-controller="ZahtjevsController" class="btn btn-primary" role="button" id="dugme" style="background-color: rgb(184,152,113);">Kreiraj zahtjev</a></p>
-                <p><a asp-action="Index" asp-controller="ZahtjevsController" class="btn btn-primary" role="button" id="dugme" style="background-color: rgb(184,152,113);">Pregled mojih zahtjeva</a></p>
+                <p><a asp-action="Create" asp-controller="Zahtjevs" class="btn btn-primary" role="button" id="dugme" style="background-color: rgb(184,152,113);">Kreiraj zahtjev</a></p>
+                <p><a asp-action="Index" asp-controller="Zahtjevs" class="btn btn-primary" role="button" id="dugme" style="background-color: rgb(184,152,113);">Pregled mojih zahtjeva</a></p>
+            }
 
-
-
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("Volonter1") || User.IsInRole("Volonter2")))
+            {
+                <p><a asp-action="Index" asp-controller="Zahtjevs" class="btn btn-primary" role="button" id="dugme" style="background-color: rgb(184,152,113);">Pregled svih zahtjeva</a></p>
             }
         </div>
     </section>
@@ -164,10 +166,6 @@
                     {
                         <h1 class="text-center"><span>...</span> Pridružite nam se <span>...</span></h1>
                     }
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <h1 class="text-center"><span>...</span>Neki tekst, nemam više ideja... <span>...</span></h1>
-                    }
 
 
                 </header>
@@ -176,12 +174,6 @@
                     {
                         <p>
                             Priključite se velikoj zajednici osoba koje se međusobno pomažu i osiguravaju bolje uslove za život u vrijeme pandemije.
-                        </p>
-                    }
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <p>
-                            Neki tekst kada je korisnik ulogovan
                         </p>
                     }
 

@@ -12,11 +12,12 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="KorisnikId" class="control-label"></label>
-                <input asp-for="KorisnikId" class="form-control" />
-                <span asp-validation-for="KorisnikId" class="text-danger"></span>
-            </div>
+            <!--    <div class="form-group">
+            <label asp-for="KorisnikId" class="control-label"></label>
+            <input asp-for="KorisnikId" class="form-control" />
+            <span asp-validation-for="KorisnikId" class="text-danger"></span>
+        </div>
+        -->
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Tutor" /> @Html.DisplayNameFor(model => model.Tutor)
@@ -47,16 +48,17 @@
                 <input asp-for="Opis" class="form-control" />
                 <span asp-validation-for="Opis" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="CreatedByUserId" class="control-label"></label>
-                <input asp-for="CreatedByUserId" class="form-control" />
-                <span asp-validation-for="CreatedByUserId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreatedDateTime" class="control-label"></label>
-                <input asp-for="CreatedDateTime" class="form-control" />
-                <span asp-validation-for="CreatedDateTime" class="text-danger"></span>
-            </div>
+            <!--   <div class="form-group">
+        <label asp-for="CreatedByUserId" class="control-label"></label>
+        <input asp-for="CreatedByUserId" class="form-control" />
+        <span asp-validation-for="CreatedByUserId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CreatedDateTime" class="control-label"></label>
+        <input asp-for="CreatedDateTime" class="form-control" />
+        <span asp-validation-for="CreatedDateTime" class="text-danger"></span>
+    </div>
+    -->
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Zavrseno" /> @Html.DisplayNameFor(model => model.Zavrseno)
@@ -69,9 +71,7 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
