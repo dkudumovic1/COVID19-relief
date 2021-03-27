@@ -111,12 +111,22 @@
 
                 </div>
 
-                @if (User.Identity.IsAuthenticated)
+                @if (User.Identity.IsAuthenticated && (User.IsInRole("Volonter1") || User.IsInRole("Volonter2")))
                 {
                     <div class="templatemo_home_inner_wapper">
                         <h2 class="text-center"></h2>
                         <p class="text-center add-shadow">
-                            Hvala Vam što u ovom neizvjesnom periodu bla bla dodajte nešto
+                            Hvala Vam što odvajate svoje vrijeme da pružite pomoć onima kojima je to potrebno!
+                        </p>
+                    </div>
+                }
+
+                @if (User.Identity.IsAuthenticated && (User.IsInRole("Korisnik1") || User.IsInRole("Korisnik2")))
+                {
+                    <div class="templatemo_home_inner_wapper">
+                        <h2 class="text-center"></h2>
+                        <p class="text-center add-shadow">
+                            Naši volonteri su uvijek spremni da Vam pomognu!
                         </p>
                     </div>
                 }
@@ -217,13 +227,16 @@
 
             </div>
 
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <div id="registerDiv">
 
-            <div id="registerDiv">
-                
-                <a id="registerBtn" class="btn col-xs-12 scroll_effect shadow-top-down" asp-area="Identity" asp-page="/Account/Register">
-                    <i class="fa fa-hands-helping"></i> Registrujte se
-                </a>
-            </div>
+                    <a id="registerBtn" class="btn col-xs-12 scroll_effect shadow-top-down" asp-area="Identity" asp-page="/Account/Register">
+                        <i class="fa fa-hands-helping"></i> Registrujte se
+                    </a>
+                </div>
+            }
+
         </div>
 
 
