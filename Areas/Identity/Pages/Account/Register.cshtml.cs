@@ -64,6 +64,10 @@ namespace HackAtHome.Areas.Identity.Pages.Account
             public string Prezime { get; set; }
 
             public string BrojTelefona { get; set; }
+
+            public int KorisnikId { get; set; }
+
+            public int VolonterId { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -79,7 +83,9 @@ namespace HackAtHome.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = new NasUser { UserName = Input.Email, Email = Input.Email, Ime = Input.Ime, 
-                    Prezime = Input.Prezime, BrojTelefona = Input.BrojTelefona};
+                    Prezime = Input.Prezime, BrojTelefona = Input.BrojTelefona,
+                    KorisnikId = Input.KorisnikId, VolonterId = Input.VolonterId
+                };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

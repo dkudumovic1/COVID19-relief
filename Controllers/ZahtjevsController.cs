@@ -7,22 +7,32 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AspNetCoreMVC.Models;
 using HackAtHome.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 
 namespace HackAtHome.Controllers
 {
     public class ZahtjevsController : Controller
     {
         private readonly HackAtHomeContext _context;
+        private readonly IHttpContextAccessor _http;
+        private readonly UserManager<NasUser> _userManager;
 
-        public ZahtjevsController(HackAtHomeContext context)
+        public ZahtjevsController(HackAtHomeContext context, IHttpContextAccessor http, UserManager<NasUser> userManager)
         {
             _context = context;
+            _http = http;
+            _userManager = userManager;
         }
 
         // GET: Zahtjevs
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Zahtjev.ToListAsync());
+            var user = _http.HttpContext.User;
+            var userFromDb = await _userManager.GetUserAsync(user);
+            if (userFromDb.KorisnikId != 0) return View(await _context.Zahtjev.Where(a =>a.CreatedByUserId == userFromDb.Id).ToListAsync());
+            else return View(await _context.Zahtjev.ToListAsync());
         }
 
         // GET: Zahtjevs/Details/5
@@ -44,6 +54,7 @@ namespace HackAtHome.Controllers
         }
 
         // GET: Zahtjevs/Create
+        [Authorize(Roles ="Korisnik1")]
         public IActionResult Create()
         {
             return View();
@@ -56,8 +67,14 @@ namespace HackAtHome.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,VrstaPomoci,Opis")] Zahtjev zahtjev)
         {
+
             if (ModelState.IsValid)
             {
+                var user = _http.HttpContext.User;
+                var userFromDb = await _userManager.GetUserAsync(user);
+                if (userFromDb != null) zahtjev.CreatedByUserId = userFromDb.Id;
+                zahtjev.CreatedDateTime = DateTime.Now;
+
                 _context.Add(zahtjev);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -66,6 +83,7 @@ namespace HackAtHome.Controllers
         }
 
         // GET: Zahtjevs/Edit/5
+        [Authorize(Roles = "Korisnik1")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -81,6 +99,7 @@ namespace HackAtHome.Controllers
             return View(zahtjev);
         }
 
+        [Authorize(Roles = "Korisnik1")]
         // POST: Zahtjevs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.

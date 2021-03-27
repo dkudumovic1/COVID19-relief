@@ -13,5 +13,9 @@ namespace HackAtHome.Models
         public string Prezime { get; set; }
 
         public string BrojTelefona { get; set; }
+
+        public int KorisnikId { get; set; }
+
+        public int VolonterId { get; set; }
     }
 }
