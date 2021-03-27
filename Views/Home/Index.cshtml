@@ -1,10 +1,14 @@
-﻿@{
+﻿
+
+@{
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <!DOCTYPE html>
 <html lang="en" class="ie_11_scroll">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,89 +50,78 @@
         </ul>
     </nav>
     <!-- Home -->
-    @if (!User.Identity.IsAuthenticated)
-    {
-        <section id="templatemo_home">
-            <div class="container">
-                <div class="templatemo_home_inner_wapper">
-                    @if (!User.Identity.IsAuthenticated)
-                    {
-                        <h1 class="text-center"> Pomozimo drugima</h1>
-                    }
-                   
-                </div>
+    <section id="templatemo_home">
+        <div class="container">
+            <div class="templatemo_home_inner_wapper">
                 @if (!User.Identity.IsAuthenticated)
                 {
-                    <div class="templatemo_home_inner_wapper">
-                        <h2 class="text-center"></h2>
-                        <p class="text-center">
-                            U neizvjesnom periodu naša aplikacija povezuje vrijedne volontere sa osobama kojima je potrebna pomoć u različitim sferama života.
-                        </p>
-                    </div>
+                    <h1 class="text-center"> Pomozimo drugima</h1>
                 }
-
-             
-
-                @if (!User.Identity.IsAuthenticated)
-                {
-                    <div class="templatemo_home_inner_wapper btn_wapper">
-                        <div class="col-sm-6">
-                            <a href="#templatemo_features" class="btn col-xs-12 scroll_effect shadow-top-down">
-                                <i class="fa fa-align-justify"></i> O nama
-                            </a>
-                        </div>
-                        <div class="col-sm-6">
-                            <a href="#templatemo_download" class="btn col-xs-12 scroll_effect shadow-top-down">
-                                <i class="fa fa-hands-helping"></i> Pridružite se
-                            </a>
-                        </div>
-                    </div>
-                }
-
-      
-            </div>
-        </section>
-    }
-    @if (User.Identity.IsAuthenticated)
-    {
-        <section id="templatemo_home2">
-            <div class="container">
-                <div class="templatemo_home_inner_wapper">
-                    
-                   
-                        <h1 class="text-center"> Dobro došli!</h1>
-                   
-
-                </div>
-               
-
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <div class="templatemo_home_inner_wapper">
-                        <h2 class="text-center"></h2>
-                        <p class="text-center">
-                            Hvala Vam što u ovom neizvjesnom periodu bla bla dodajte nešto
-                        </p>
-                    </div>
+                    <h1 class="text-center"> Dobro došli!</h1>
                 }
 
-               
-
-                @if (User.Identity.IsAuthenticated && (User.IsInRole("Korisnik1") || User.IsInRole("Korisnik2")))
-                {
-                    <p><a asp-action="Create" asp-controller="Zahtjevs" class="btn btn-primary" role="button" id="dugme" style="background-color: rgb(184,152,113);">Kreiraj zahtjev</a></p>
-                    <p><a asp-action="Index" asp-controller="Zahtjevs" class="btn btn-primary" role="button" id="dugme" style="background-color: rgb(184,152,113);">Pregled mojih zahtjeva</a></p>
-                }
-
-                @if (User.Identity.IsAuthenticated && (User.IsInRole("Volonter1") || User.IsInRole("Volonter2")))
-                {
-                    <p><a asp-action="Index" asp-controller="Zahtjevs" class="btn btn-primary" role="button" id="dugme" style="background-color: rgb(184,152,113);">Pregled svih zahtjeva</a></p>
-                }
             </div>
-        </section>
-    }
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <div class="templatemo_home_inner_wapper">
+                    <h2 class="text-center"></h2>
+                    <p class="text-center">
+                        U neizvjesnom periodu naša aplikacija povezuje vrijedne volontere sa osobama kojima je potrebna pomoć u različitim sferama života.
+                    </p>
+                </div>
+            }
 
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="templatemo_home_inner_wapper">
+                    <h2 class="text-center"></h2>
+                    <p class="text-center">
+                        Hvala Vam što u ovom neizvjesnom periodu bla bla dodajte nešto
+                    </p>
+                </div>
+            }
 
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <div class="templatemo_home_inner_wapper btn_wapper">
+                    <div class="col-sm-6">
+                        <a href="#templatemo_features" class="btn col-xs-12 scroll_effect shadow-top-down">
+                            <i class="fa fa-align-justify"></i> O nama
+                        </a>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="#templatemo_download" class="btn col-xs-12 scroll_effect shadow-top-down">
+                            <i class="fa fa-hands-helping"></i> Pridružite se
+                        </a>
+                    </div>
+                </div>
+            }
+
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("Korisnik1") || User.IsInRole("Korisnik2")))
+            {
+                <p><a asp-action="Details" asp-controller="Korisniks" class="btn btn-primary" role="button" id="dugme1" style="background-color: rgb(184,152,113);">Pregled profila</a></p>
+            }
+
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("Volonter1") || User.IsInRole("Volonter2")))
+            {
+                <p><a asp-action="Details" asp-controller="Volonters" class="btn btn-primary" role="button" id="dugme1" style="background-color: rgb(184,152,113);">Pregled profila</a></p>
+            }
+
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("Korisnik1") || User.IsInRole("Korisnik2")))
+            {
+                <p><a asp-action="Create" asp-controller="Zahtjevs" class="btn btn-primary" role="button" id="dugme" style="background-color: rgb(184,152,113);">Kreiraj zahtjev</a></p>
+                <p><a asp-action="Index" asp-controller="Zahtjevs" class="btn btn-primary" role="button" id="dugme" style="background-color: rgb(184,152,113);">Pregled mojih zahtjeva</a></p>
+            }
+
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("Volonter1") || User.IsInRole("Volonter2")))
+            {
+                <p><a asp-action="Index" asp-controller="Zahtjevs" class="btn btn-primary" role="button" id="dugme" style="background-color: rgb(184,152,113);">Pregled svih zahtjeva</a></p>
+            }
+
+        </div>
+    </section>
     <!-- Features -->
     <section id="templatemo_features">
         <div class="container-fluid">
@@ -181,39 +174,39 @@
     </section>
     <!-- Download -->
     <section id="templatemo_download">
-
-        <div class="container">
-            <header class="template_header">
-                @if (!User.Identity.IsAuthenticated)
-                {
-                    <h1 class="text-center"><span>...</span> Pridružite nam se <span>...</span></h1>
-                }
-
-
-            </header>
-            <div class="templatemo_download_text_wapper">
-                @if (!User.Identity.IsAuthenticated)
-                {
-                    <p>
-                        Priključite se velikoj zajednici osoba koje se međusobno pomažu i osiguravaju bolje uslove za život u vrijeme pandemije.
-                    </p>
-                }
+        
+            <div class="container">
+                <header class="template_header">
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <h1 class="text-center"><span>...</span> Pridružite nam se <span>...</span></h1>
+                    }
 
 
-            </div>
+                </header>
+                <div class="templatemo_download_text_wapper">
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <p>
+                            Priključite se velikoj zajednici osoba koje se međusobno pomažu i osiguravaju bolje uslove za život u vrijeme pandemije.
+                        </p>
+                    }
 
 
-            <div id="registerDiv">
-                <!--
+                </div>
+
+
+                <div id="registerDiv">
+                    <!--
                 <a id="registerBtn" href="#templatemo_download" class="btn col-xs-12 scroll_effect shadow-top-down">
                     <i class="fa fa-hands-helping"></i> Registrujte se
                 </a>-->
+                </div>
             </div>
-        </div>
-
+        
 
     </section>
-
+ 
     <footer>
         <div class="container">
             <div class="row">

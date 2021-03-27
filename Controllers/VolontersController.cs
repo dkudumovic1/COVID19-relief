@@ -34,6 +34,10 @@ namespace HackAtHome.Controllers
         // GET: Volonters/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            var user = _http.HttpContext.User;
+            var userFromDb = await _userManager.GetUserAsync(user);
+            if (userFromDb != null && id == null) id = userFromDb.VolonterId;
+
             if (id == null)
             {
                 return NotFound();

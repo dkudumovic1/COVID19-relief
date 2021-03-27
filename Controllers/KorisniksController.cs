@@ -7,16 +7,22 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AspNetCoreMVC.Models;
 using HackAtHome.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
 
 namespace HackAtHome.Controllers
 {
     public class KorisniksController : Controller
     {
         private readonly HackAtHomeContext _context;
+        private readonly IHttpContextAccessor _http;
+        private readonly UserManager<NasUser> _userManager;
 
-        public KorisniksController(HackAtHomeContext context)
+        public KorisniksController(HackAtHomeContext context, IHttpContextAccessor http, UserManager<NasUser> user)
         {
             _context = context;
+            _http = http;
+            _userManager = user;
         }
 
         // GET: Korisniks
@@ -28,6 +34,10 @@ namespace HackAtHome.Controllers
         // GET: Korisniks/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            var user = _http.HttpContext.User;
+            var userFromDb = await _userManager.GetUserAsync(user);
+            if (userFromDb != null && id == null) id = userFromDb.KorisnikId;
+
             if (id == null)
             {
                 return NotFound();
