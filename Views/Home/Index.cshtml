@@ -1,10 +1,14 @@
-﻿@{
+﻿
+
+@{
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <!DOCTYPE html>
 <html lang="en" class="ie_11_scroll">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -97,6 +101,16 @@
 
             @if (User.Identity.IsAuthenticated && (User.IsInRole("Korisnik1") || User.IsInRole("Korisnik2")))
             {
+                <p><a asp-action="Details" asp-controller="Korisniks" class="btn btn-primary" role="button" id="dugme1" style="background-color: rgb(184,152,113);">Pregled profila</a></p>
+            }
+
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("Volonter1") || User.IsInRole("Volonter2")))
+            {
+                <p><a asp-action="Details" asp-controller="Volonters" class="btn btn-primary" role="button" id="dugme1" style="background-color: rgb(184,152,113);">Pregled profila</a></p>
+            }
+
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("Korisnik1") || User.IsInRole("Korisnik2")))
+            {
                 <p><a asp-action="Create" asp-controller="Zahtjevs" class="btn btn-primary" role="button" id="dugme" style="background-color: rgb(184,152,113);">Kreiraj zahtjev</a></p>
                 <p><a asp-action="Index" asp-controller="Zahtjevs" class="btn btn-primary" role="button" id="dugme" style="background-color: rgb(184,152,113);">Pregled mojih zahtjeva</a></p>
             }
@@ -105,6 +119,7 @@
             {
                 <p><a asp-action="Index" asp-controller="Zahtjevs" class="btn btn-primary" role="button" id="dugme" style="background-color: rgb(184,152,113);">Pregled svih zahtjeva</a></p>
             }
+
         </div>
     </section>
     <!-- Features -->

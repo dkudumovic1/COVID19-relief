@@ -31,6 +31,7 @@ namespace HackAtHome.Controllers
         {
             var user = _http.HttpContext.User;
             var userFromDb = await _userManager.GetUserAsync(user);
+
             if (userFromDb.KorisnikId != 0) return View(await _context.Zahtjev.Where(a => a.CreatedByUserId == userFromDb.Id).ToListAsync());
             else return View(await _context.Zahtjev.ToListAsync());
         }
