@@ -82,7 +82,7 @@
                 <nav aria-label="breadcrumb" class="main-breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="Index.cshtml">Početna</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Pofil</li>
+                        <li class="breadcrumb-item active" aria-current="page">Profil</li>
                     </ol>
                 </nav>
                 <!-- /Breadcrumb -->
@@ -92,7 +92,7 @@
                         <div class="card" >
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" alt="Admin" class="rounded-circle" width="150">
+                                    <img src="@Url.Content("~/img/profilna.png")" alt="Admin" class="rounded-circle" width="150">
                                     <div class="mt-3">
                                         <h4>@Html.DisplayFor(model => model.Ime) @Html.DisplayFor(model => model.Prezime)</h4>
                                         <p class="text-secondary mb-1">Volonter</p>
