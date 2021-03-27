@@ -4,86 +4,52 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Pregled svih zahtjeva</h1>
 
 <p>
     <a asp-action="Create">Kreiraj novi zahtjev</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.KorisnikId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tutor)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MedicinskaPomoc)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Vakcinisan)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Dostava)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ZnakovniJezik)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Opis)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedByUserId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedDateTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Zavrseno)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.KorisnikId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tutor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MedicinskaPomoc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Vakcinisan)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Dostava)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ZnakovniJezik)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Opis)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedByUserId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedDateTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Zavrseno)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div style="background-color:steelblue">
+    <table class="table">
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="row" style="max-width: 100%;min-width: 100%;">
+                            <div class="col-lg-6 mb-4" style="width: max;text-align: center;max-width: 100%;min-width: 100%;">
+                                <div class="card shadow mb-4" style="width: 900px;text-align: center;max-width: 90%;min-width: 90%;margin: auto;">
+                                    <div class="card-header py-3">
+                                        <h6 class="text-primary font-weight-bold m-0">Zahtjev br. @Html.DisplayFor(modelItem => item.Id) </h6>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <div class="row align-items-center no-gutters">
+                                                <div class="col mr-2">
+                                                    <span class="text-xs" style="color: rgb(0,0,0);font-size: 14px;text-align: center;">
+                                                        <br>
+                                                        <h6>@Html.DisplayFor(modelItem => item.Opis)</h6>
+                                                        <br><br>
+                                                    </span>
+                                                    <h5>Osobine zahtjeva:</h5>
+                                                    <h6>Meidinska pomoć: @Html.DisplayFor(modelItem => item.MedicinskaPomoc)</h6>
+                                                    <h6>Dostava: @Html.DisplayFor(modelItem => item.Dostava)</h6>
+                                                    <h6>Znakovni jezik: @Html.DisplayFor(modelItem => item.ZnakovniJezik)</h6>
+                                                    <h6>Vakcinacija: @Html.DisplayFor(modelItem => item.Vakcinisan)</h6>
+                                                    <h6>Tutor: @Html.DisplayFor(modelItem => item.Tutor)</h6>
+                                                    <br>
+                                                    <h6>Vrijeme kreiranja zahtjeva: @Html.DisplayFor(modelItem => item.CreatedDateTime)</h6>
+                                                    <button class="btn btn-primary" type="button">Prihvati task</button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

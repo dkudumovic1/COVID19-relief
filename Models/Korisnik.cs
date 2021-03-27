@@ -27,5 +27,16 @@ namespace HackAtHome.Models
         [Display(Name = "Geografska dužina")]
         public string GeografskaDuzina { get; set; }
 
+   /*     public Korisnik(int id, string ime, string prezime, string grad, string latitude, string longitude)
+        {
+            this.Id = id;
+            this.Ime = ime;
+            this.Prezime = prezime;
+            this.Grad = grad;
+            this.GeografskaSirina = latitude;
+            this.GeografskaDuzina = longitude;
+;
+        } */
+
     }
 }
