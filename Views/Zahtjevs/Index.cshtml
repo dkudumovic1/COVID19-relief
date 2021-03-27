@@ -4,52 +4,60 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Pregled svih zahtjeva</h1>
+<body style="background-color: #455a64">
+    <div style="color:white">
+        <h1>Pregled svih zahtjeva</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<div style="background-color:steelblue">
-    <table class="table">
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        <div class="row" style="max-width: 100%;min-width: 100%;">
-                            <div class="col-lg-6 mb-4" style="width: max;text-align: center;max-width: 100%;min-width: 100%;">
-                                <div class="card shadow mb-4" style="width: 900px;text-align: center;max-width: 90%;min-width: 90%;margin: auto;">
-                                    <div class="card-header py-3">
-                                        <h6 class="text-primary font-weight-bold m-0">Zahtjev br. @Html.DisplayFor(modelItem => item.Id) </h6>
-                                    </div>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">
-                                            <div class="row align-items-center no-gutters">
-                                                <div class="col mr-2">
-                                                    <span class="text-xs" style="color: rgb(0,0,0);font-size: 14px;text-align: center;">
+        <p>
+            <!--   <a asp-action="Create">Create New</a> -->
+        </p>
+    </div>
+
+    <br><br>
+    <div style="background: #455a64 url(css/template/images/pattern_bg.png) fixed;max-width: 90%;min-width: 90%; margin:auto;" ;>
+        <table class="table">
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr style="padding:2px">
+                        <td>
+                            <div class="row" style="max-width: 100%;min-width: 100%;">
+                                <div class="col-lg-6 mb-4" style="width: max;text-align: center;max-width: 100%;min-width: 100%;">
+                                    <br><br>
+                                    <div class="card shadow mb-4" style="width: 900px;text-align: center;max-width: 90%;min-width: 90%;margin: auto;">
+
+                                        <div class="card-header py-3">
+                                            <h5 style="color:black">Zahtjev br. @Html.DisplayFor(modelItem => item.Id) </h5>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <div class="row align-items-center no-gutters">
+                                                    <div class="col mr-2">
+                                                        <span class="text-xs" style="color: rgb(0,0,0);font-size: 14px;text-align: center;">
+                                                            <br>
+                                                            <h6>@Html.DisplayFor(modelItem => item.Opis)</h6>
+                                                            <br><br>
+                                                        </span>
+                                                        <h5>Osobine zahtjeva:</h5>
+                                                        <h6>Meidinska pomoć: @Html.DisplayFor(modelItem => item.MedicinskaPomoc)</h6>
+                                                        <h6>Dostava: @Html.DisplayFor(modelItem => item.Dostava)</h6>
+                                                        <h6>Znakovni jezik: @Html.DisplayFor(modelItem => item.ZnakovniJezik)</h6>
+                                                        <h6>Vakcinacija: @Html.DisplayFor(modelItem => item.Vakcinisan)</h6>
+                                                        <h6>Tutor: @Html.DisplayFor(modelItem => item.Tutor)</h6>
                                                         <br>
-                                                        <h6>@Html.DisplayFor(modelItem => item.Opis)</h6>
-                                                        <br><br>
-                                                    </span>
-                                                    <h5>Osobine zahtjeva:</h5>
-                                                    <h6>Meidinska pomoć: @Html.DisplayFor(modelItem => item.MedicinskaPomoc)</h6>
-                                                    <h6>Dostava: @Html.DisplayFor(modelItem => item.Dostava)</h6>
-                                                    <h6>Znakovni jezik: @Html.DisplayFor(modelItem => item.ZnakovniJezik)</h6>
-                                                    <h6>Vakcinacija: @Html.DisplayFor(modelItem => item.Vakcinisan)</h6>
-                                                    <h6>Tutor: @Html.DisplayFor(modelItem => item.Tutor)</h6>
-                                                    <br>
-                                                    <h6>Vrijeme kreiranja zahtjeva: @Html.DisplayFor(modelItem => item.CreatedDateTime)</h6>
-                                                    <button class="btn btn-primary" type="button">Prihvati task</button>
+                                                        <h6>Vrijeme kreiranja zahtjeva: @Html.DisplayFor(modelItem => item.CreatedDateTime)</h6>
+                                                        <button class="btn btn-primary" style="background-color: #b89871" type="button">Prihvati zahtjev</button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
