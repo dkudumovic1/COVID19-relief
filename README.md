@@ -7,5 +7,5 @@ U aplikaciji su korištene različite tehnologije kao što su ASP.NET Core MVC, 
 
 Pristupni podaci: 
 
-*Korisnik: dzeneta@gmail.com (Sifra123.)
-*Volonter dzenana@mail.com (Sifra123.)
+* Korisnik: dzeneta@gmail.com (Sifra123.)
+* Volonter dzenana@mail.com (Sifra123.)
