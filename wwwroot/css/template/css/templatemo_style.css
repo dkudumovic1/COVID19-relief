@@ -170,11 +170,14 @@ nav.main-menu a:link, nav.main-menu a:hover, nav.main-menu a:focus, nav.main-men
 #registerBtn {
     background-color: white;
     position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #registerDiv {
     background-color: white;
     position: relative;
+    text-align: center;
 }
 #templatemo_home {
     background: #154558 url(../images/jumbo_background.jpg) fixed;
