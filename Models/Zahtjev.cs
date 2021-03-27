@@ -14,9 +14,12 @@ namespace HackAtHome.Models
         public bool Tutor { get; set; }
         [Display(Name = "Medicinska pomoć")]
         public bool MedicinskaPomoc { get; set; }
+
+        [Display(Name = "Briga za osobe u izolaciji (COVID-19)")]
         public bool Vakcinisan { get; set; }
+        [Display(Name = "Dostava namirnica")]
         public bool Dostava { get; set; }
-        [Display(Name = "Znakovni jezik")]
+        [Display(Name = "Poznavanje znakovnog jezika")]
         public bool ZnakovniJezik { get; set; }
         public string Opis { get; set; }
 
