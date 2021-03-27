@@ -3,55 +3,75 @@
 }
 <style>
     #map {
-        height: 600px;
+        height: 550px;
         width: 80%;
         margin: auto;
     }
+
+    #task {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+        padding: 16px;
+        text-align: center;
+        background-color: #f1f1f1;
+        width: 70%;
+        margin: auto;
+    }
+
 </style>
-<br />
-<br />
-<br />
-<h1>Pregled zahtjeva</h1>
-<br />
-<br />
-<div id="map"></div>
+<body style="background-color: #455a64">
+    <br />
+    <br />
+    <br />
+    <h1>Pregled zahtjeva</h1>
+    <br />
+    <br />
+    <div id="map"></div>
+    <br><br>
+    <div id="task" style="display:none">
 
-
-@foreach (var item in ViewBag.korisnici)
-{
+    </div>
 
     <script>
-        var map;
-        function initMap(zoomeLevel, latDb, longDb) {
+    window.MyLib = {};
 
-            window.map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat: latDb != null ? latDb : 43.8563, lng: longDb != null ? longDb : 18.4131 },
-                zoom: zoomeLevel != null ? zoomeLevel : 6
-            });
+    function initMap(zoomeLevel, latDb, longDb) {
 
+        window.map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: latDb != null ? latDb : 43.8563, lng: longDb != null ? longDb : 18.4131 },
+            zoom: zoomeLevel != null ? zoomeLevel : 8
+        });
 
-            const myLatLng = { lat: 43.8563, lng: 18.4131 };
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 8,
-                center: myLatLng,
-            });
-            new google.maps.Marker({
+        var array = @Html.Raw(Json.Serialize(ViewData["korisnici"]));
+        for (var i = 0; i < array.length; i++) {
+
+           const myLatLng = { lat: Number.parseFloat(array[i].geografskaSirina), lng: Number.parseFloat(array[i].geografskaDuzina) };
+
+        //   const myLatLng = { lat: 43.8563, lng: 18.4131 };
+
+            const title2 = array[i].ime;
+            const grad = array[i].grad;
+
+            var marker = new google.maps.Marker({
                 position: myLatLng,
                 map,
-                title: "Hello World!",
+                title: title2,
             });
-        //dobaviti mapu
 
-        const myLatLng = { lat: 43.8563, lng: 18.4131 };
+            google.maps.event.addListener(marker, 'click', function () {
+                document.getElementById('task').style.display = "block";
 
-        new google.maps.Marker({
-            position: myLatLng,
-            map,
-            title: "Hello World!",
-        });
-    
+
+                document.getElementById('task').innerHTML = "<h2>Korisnik '" + title2 + "' treba vašu pomoć!</h2>"
+                document.getElementById('task').innerHTML += "<br><br><h6>Opis zahtjeva: Mauris tempor tellus arcu, sed lobortis tellus vehicula nec. Phasellus risus ex, tincidunt vel porttitor finibus, aliquet ac orci. Nunc in sapien non orci auctor hendrerit tincidunt et libero. Proin suscipit mattis ipsum, a scelerisque massa convallis sit amet. Proin fermentum eros vel arcu hendrerit, id imperdiet metus pharetra.</h6>"
+                document.getElementById('task').innerHTML += "<br><br><h5>Lokacija: " + grad + "</h5>"
+                document.getElementById('task').innerHTML += "<br><br><button>Prihvati task</button>";
+            });
+        }
+    }
+
     </script>
-}
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDm1MOx-ZJj-XMIsRfcrKNCLyQSB-aTIOE&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDm1MOx-ZJj-XMIsRfcrKNCLyQSB-aTIOE&callback=initMap" async defer></script>
+
+</body>
