@@ -1,7 +1,7 @@
 .bg-gradient-primary-2 {
-  background-color: #e9e3f4;
-  background-image: linear-gradient(180deg,#e9e3f4 10%,#bdabde );
-  background-size: cover;
+    background-color: #455a64;
+    background-image: linear-gradient(180deg,#455a64 10%,#5d6d75 );
+    background-size: cover;
 }
 
 #pozadinskaSlika {
