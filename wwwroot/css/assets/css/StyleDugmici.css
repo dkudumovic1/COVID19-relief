@@ -1,0 +1,23 @@
+﻿#pocetna {
+    text-align: center;
+    padding: 5px;
+    /*background: url(../../assets/img/dom.jpg);*/
+    /*
+        background: url(../../assets/img/dom.jpg);
+    */
+    max-width: 50px;
+    
+}
+
+    #pocetna .jumbotron {
+        border-radius: 5px;
+        padding: 5px;
+        background-color: rgba(255, 255, 255, 0.75);
+        font-size: medium;
+        max-width: 50px;
+    }
+        #dugme {
+    color: white;
+    background-color: rgba(69,90,100,255);
+    border-color: rgb(184,152,113);
+}
