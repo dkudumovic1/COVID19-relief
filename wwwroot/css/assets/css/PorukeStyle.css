@@ -1,21 +1,29 @@
 ﻿#prviDiv {
-    background-color: rgba(69,90,100,255);
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 #drugiDiv {
-    background-image: url(../img/lisce.jpeg);
+   
     min-height: 500px;
     min-width:500px;
 
     
-    margin-left: auto;
-    margin-right: auto;
     
     color: white;
-    background-color: white;
 }
 
 #treciDiv {
-    color: rgba(69,90,100,255);
-    background-color: white;
+    color: white;
+    text-align: center;
+    text-shadow: 1px 1px 7px black, 0 0 25px #275267, 0 0 5px #275267;
+}
+body {
+    background-image: url(../img/motivational.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-size: cover;
+    background-color: rgba(69,90,100,255);
 }
