@@ -4,65 +4,64 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Izmjene zahtjeva</h1>
 
-<h4>Zahtjev</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="KorisnikId" class="control-label"></label>
-                <input asp-for="KorisnikId" class="form-control" />
-                <span asp-validation-for="KorisnikId" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Tutor" /> @Html.DisplayNameFor(model => model.Tutor)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="MedicinskaPomoc" /> @Html.DisplayNameFor(model => model.MedicinskaPomoc)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Vakcinisan" /> @Html.DisplayNameFor(model => model.Vakcinisan)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Dostava" /> @Html.DisplayNameFor(model => model.Dostava)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ZnakovniJezik" /> @Html.DisplayNameFor(model => model.ZnakovniJezik)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Opis" class="control-label"></label>
-                <input asp-for="Opis" class="form-control" />
-                <span asp-validation-for="Opis" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreatedByUserId" class="control-label"></label>
-                <input asp-for="CreatedByUserId" class="form-control" />
-                <span asp-validation-for="CreatedByUserId" class="text-danger"></span>
-            </div>
+            <!--     <div class="form-group">
+             <label asp-for="KorisnikId" class="control-label"></label>
+             <input asp-for="KorisnikId" class="form-control" />
+             <span asp-validation-for="KorisnikId" class="text-danger"></span>
+         </div>-->
+         <div class="form-group form-check">
+             <label class="form-check-label">
+                 <input class="form-check-input" asp-for="Tutor" /> @Html.DisplayNameFor(model => model.Tutor)
+             </label>
+         </div>
+         <div class="form-group form-check">
+             <label class="form-check-label">
+                 <input class="form-check-input" asp-for="MedicinskaPomoc" /> @Html.DisplayNameFor(model => model.MedicinskaPomoc)
+             </label>
+         </div>
+         <div class="form-group form-check">
+             <label class="form-check-label">
+                 <input class="form-check-input" asp-for="Vakcinisan" /> @Html.DisplayNameFor(model => model.Vakcinisan)
+             </label>
+         </div>
+         <div class="form-group form-check">
+             <label class="form-check-label">
+                 <input class="form-check-input" asp-for="Dostava" /> @Html.DisplayNameFor(model => model.Dostava)
+             </label>
+         </div>
+         <div class="form-group form-check">
+             <label class="form-check-label">
+                 <input class="form-check-input" asp-for="ZnakovniJezik" /> @Html.DisplayNameFor(model => model.ZnakovniJezik)
+             </label>
+         </div>
+         <div class="form-group">
+             <label asp-for="Opis" class="control-label"></label>
+             <input asp-for="Opis" class="form-control" />
+             <span asp-validation-for="Opis" class="text-danger"></span>
+         </div>
+         <!--      <div class="form-group">
+           <label asp-for="CreatedByUserId" class="control-label"></label>
+           <input asp-for="CreatedByUserId" class="form-control" />
+           <span asp-validation-for="CreatedByUserId" class="text-danger"></span>
+       </div> -->
             <div class="form-group">
                 <label asp-for="CreatedDateTime" class="control-label"></label>
                 <input asp-for="CreatedDateTime" class="form-control" />
                 <span asp-validation-for="CreatedDateTime" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Zavrseno" /> @Html.DisplayNameFor(model => model.Zavrseno)
-                </label>
-            </div>
+            <!--     <div class="form-group form-check">
+        <label class="form-check-label">
+            <input class="form-check-input" asp-for="Zavrseno" /> @Html.DisplayNameFor(model => model.Zavrseno)
+        </label>
+    </div>-->
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
@@ -71,7 +70,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <!-- <a asp-action="Index">Back to List</a>-->
 </div>
 
 @section Scripts {

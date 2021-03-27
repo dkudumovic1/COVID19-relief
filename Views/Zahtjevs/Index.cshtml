@@ -46,7 +46,17 @@
                                                         <h6>Tutor: @Html.DisplayFor(modelItem => item.Tutor)</h6>
                                                         <h6>Vrijeme kreiranja zahtjeva: @Html.DisplayFor(modelItem => item.CreatedDateTime)</h6>
                                                         <br />
-                                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-primary" role="button">Prihvati zahtjev</a>
+
+                                                        @if (User.IsInRole("Volonter1") || User.IsInRole("Volonter2"))
+                                                        {
+                                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-primary" role="button">Prihvati zahtjev</a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary" role="button">Izmijeni zahtjev</a>
+                                                            <a asp-action = "Details" asp-route-id = "@item.Id" class="btn btn-primary" role="button" >Pogledaj zahtjev</a>
+                                                            <a asp-action = "Delete" asp-route-id = "@item.Id" class="btn btn-primary" role="button">Obriši zahtjev</a>
+                                                        }
 
                                                     </div>
                                                 </div>

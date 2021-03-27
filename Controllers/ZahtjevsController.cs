@@ -151,6 +151,15 @@ namespace HackAtHome.Controllers
                 return NotFound();
             }
 
+            var korisnik = await _context.Korisnik.FirstOrDefaultAsync(k => k.Id == id);
+            //popuni podatke samo u delete
+            var imePrezime = "";
+            if (korisnik != null)
+            {
+                imePrezime = korisnik.Ime + " " + korisnik.Prezime;
+                zahtjev.Opis += "+" + imePrezime;
+            }
+          
             return View(zahtjev);
         }
 
