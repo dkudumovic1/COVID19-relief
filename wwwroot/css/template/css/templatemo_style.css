@@ -177,6 +177,14 @@ nav.main-menu a:link, nav.main-menu a:hover, nav.main-menu a:focus, nav.main-men
     padding-bottom: 130px;
     color: #fff;
 }
+#templatemo_home2 {
+    background: #154558 url(../images/background2.jpg) fixed;
+    /*background:  url(../images/.jpg) fixed;*/
+    background-size: cover;
+    min-height: 100vh;
+    padding-bottom: 130px;
+    color: #fff;
+}
 #templatemo_home .templatemo_home_inner_wapper {
     width: 100%;
     max-width: 500px;
