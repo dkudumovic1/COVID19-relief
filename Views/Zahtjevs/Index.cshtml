@@ -32,21 +32,22 @@
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item">
                                                 <div class="row align-items-center no-gutters">
-                                                    <div class="col mr-2">
-                                                        <span class="text-xs" style="color: rgb(0,0,0);font-size: 14px;text-align: center;">
+                                                    <div class="col mr-2" text-align: left;>
+                                                        <span class="text-xs" style="color: rgb(0,0,0); font-size: 14px; text-align: center;">
                                                             <br>
                                                             <h6>@Html.DisplayFor(modelItem => item.Opis)</h6>
                                                             <br><br>
                                                         </span>
                                                         <h5>Osobine zahtjeva:</h5>
-                                                        <h6>Meidinska pomoć: @Html.DisplayFor(modelItem => item.MedicinskaPomoc)</h6>
+                                                        <h6>Mecisinska pomoć: @Html.DisplayFor(modelItem => item.MedicinskaPomoc)</h6>
                                                         <h6>Dostava: @Html.DisplayFor(modelItem => item.Dostava)</h6>
                                                         <h6>Znakovni jezik: @Html.DisplayFor(modelItem => item.ZnakovniJezik)</h6>
                                                         <h6>Vakcinacija: @Html.DisplayFor(modelItem => item.Vakcinisan)</h6>
                                                         <h6>Tutor: @Html.DisplayFor(modelItem => item.Tutor)</h6>
-                                                        <br>
                                                         <h6>Vrijeme kreiranja zahtjeva: @Html.DisplayFor(modelItem => item.CreatedDateTime)</h6>
-                                                        <button class="btn btn-primary" style="background-color: #b89871" type="button">Prihvati zahtjev</button>
+                                                        <br />
+                                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-primary" role="button">Prihvati zahtjev</a>
+
                                                     </div>
                                                 </div>
                                             </li>
