@@ -164,9 +164,10 @@ namespace HackAtHome.Controllers
 
         public async Task<IActionResult> PregledZahtjeva()
         {
-            var korisnici = new List<Korisnik>();
-         
-            korisnici.Add(new Korisnik(1, "Korisnik 1", "", "Sarajevo", "43.8563", "18.4131"));
+            var korisnici = await _context.Korisnik.ToListAsync();
+
+
+         /*   korisnici.Add(new Korisnik(1, "Korisnik 1", "", "Sarajevo", "43.8563", "18.4131"));
             korisnici.Add(new Korisnik(2, "Korisnik 2", "", "Zagreb", "45.815399", "15.966568"));
             korisnici.Add(new Korisnik(3, "Korisnik 3", "", "Beograd", "44.787197", "20.457273"));
             korisnici.Add(new Korisnik(4, "Korisnik 4", "", "Mostar", "43.343775", "17.807758"));
@@ -174,7 +175,7 @@ namespace HackAtHome.Controllers
             korisnici.Add(new Korisnik(6, "Korisnik 6", "", "Bihać", "44.8120", "15.8686"));
             korisnici.Add(new Korisnik(7, "Korisnik 7", "", "Ključ", "44.5340", "16.7747"));
             korisnici.Add(new Korisnik(8, "Korisnik 8", "", "Banja Luka", "44.7722", "17.1910"));
-
+*/
             ViewData["korisnici"] = korisnici;
             return View();
         }
