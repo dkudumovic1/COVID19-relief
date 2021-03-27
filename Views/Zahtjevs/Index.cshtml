@@ -13,10 +13,34 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.VrstaPomoci)
+                @Html.DisplayNameFor(model => model.KorisnikId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tutor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MedicinskaPomoc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vakcinisan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dostava)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZnakovniJezik)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Opis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedByUserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zavrseno)
             </th>
             <th></th>
         </tr>
@@ -25,10 +49,34 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.VrstaPomoci)
+                @Html.DisplayFor(modelItem => item.KorisnikId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tutor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedicinskaPomoc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vakcinisan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dostava)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZnakovniJezik)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Opis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedByUserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zavrseno)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
