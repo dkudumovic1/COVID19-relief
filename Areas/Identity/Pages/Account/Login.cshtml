@@ -35,32 +35,49 @@
 
 
 
-    <div class="row">
-        <div class="col-md-4">
-            <section>
-                <form id="account" method="post">
-                    <hr />
-                    <div asp-validation-summary="All" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="Input.Email"></label>
-                        <input asp-for="Input.Email" class="form-control" />
-                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+    <section id="templatemo_contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <header class="template_header">
+                        <h1 class="text-center"><span>...</span> Prijavite se <span>...</span></h1>
+                    </header>
+
+                </div>
+            </div>
+            <form id="account" method="post">
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+
+                    <label asp-for="Input.Email"></label>
+                   <!-- <div class="input-group-addon"><i class="fa fa-at"></i></div>-->
+                    <input asp-for="Input.Email" class="form-control" />
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Password">Lozinka</label>
+                    <!--<div class="input-group-addon"><i class="fa fa-ellipsis-h"></i></div>-->
+                    <input asp-for="Input.Password" class="form-control" />
+
+                </div>
+                <div class="form-group">
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-6 col-xs-offset-6">
+                        <button type="submit" class="form-control">Potvrdi</button>
                     </div>
-                    <div class="form-group">
-                        <label asp-for="Input.Password">Lozinka</label>
-                        <input asp-for="Input.Password" class="form-control" />
-                        <span asp-validation-for="Input.Password" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Prijava</button>
-                    </div>
-                </form>
-            </section>
+                </div>
+                <!--
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Prijava</button>
+    </div>-->
+            </form>
         </div>
-        </div>
+    </section>
+       
+       
 
 
 </body>
