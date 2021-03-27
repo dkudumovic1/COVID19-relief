@@ -7,16 +7,22 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AspNetCoreMVC.Models;
 using HackAtHome.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
 
 namespace HackAtHome.Controllers
 {
     public class VolontersController : Controller
     {
         private readonly HackAtHomeContext _context;
+        private readonly IHttpContextAccessor _http;
+        private readonly UserManager<NasUser> _userManager;
 
-        public VolontersController(HackAtHomeContext context)
+        public VolontersController(HackAtHomeContext context, IHttpContextAccessor http, UserManager<NasUser> userManager)
         {
             _context = context;
+            _http = http;
+            _userManager = userManager;
         }
 
         // GET: Volonters
@@ -74,10 +80,12 @@ namespace HackAtHome.Controllers
             }
 
             var volonter = await _context.Volonter.FindAsync(id);
+
             if (volonter == null)
             {
                 return NotFound();
             }
+            
             return View(volonter);
         }
 

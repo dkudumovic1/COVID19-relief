@@ -170,7 +170,6 @@
     <Folder Include="Views\template\.git\objects\info\" />
     <Folder Include="Views\template\.git\objects\pack\" />
     <Folder Include="Views\template\.git\refs\tags\" />
-    <Folder Include="wwwroot\css\template\" />
   </ItemGroup>
 
 </Project>

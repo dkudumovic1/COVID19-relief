@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AspNetCoreMVC.Models;
 using HackAtHome.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HackAtHome.Controllers
 {
@@ -31,7 +31,7 @@ namespace HackAtHome.Controllers
         {
             var user = _http.HttpContext.User;
             var userFromDb = await _userManager.GetUserAsync(user);
-            if (userFromDb.KorisnikId != 0) return View(await _context.Zahtjev.Where(a =>a.CreatedByUserId == userFromDb.Id).ToListAsync());
+            if (userFromDb.KorisnikId != 0) return View(await _context.Zahtjev.Where(a => a.CreatedByUserId == userFromDb.Id).ToListAsync());
             else return View(await _context.Zahtjev.ToListAsync());
         }
 
@@ -54,7 +54,6 @@ namespace HackAtHome.Controllers
         }
 
         // GET: Zahtjevs/Create
-        [Authorize(Roles ="Korisnik1")]
         public IActionResult Create()
         {
             return View();
@@ -65,15 +64,16 @@ namespace HackAtHome.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,VrstaPomoci,Opis")] Zahtjev zahtjev)
+        public async Task<IActionResult> Create([Bind("Id,KorisnikId,Tutor,MedicinskaPomoc,Vakcinisan,Dostava,ZnakovniJezik,Opis,CreatedByUserId,CreatedDateTime,Zavrseno")] Zahtjev zahtjev)
         {
-
             if (ModelState.IsValid)
             {
                 var user = _http.HttpContext.User;
                 var userFromDb = await _userManager.GetUserAsync(user);
                 if (userFromDb != null) zahtjev.CreatedByUserId = userFromDb.Id;
                 zahtjev.CreatedDateTime = DateTime.Now;
+                zahtjev.KorisnikId = userFromDb.KorisnikId;
+                zahtjev.CreatedByUserId = userFromDb.Id;
 
                 _context.Add(zahtjev);
                 await _context.SaveChangesAsync();
@@ -83,7 +83,6 @@ namespace HackAtHome.Controllers
         }
 
         // GET: Zahtjevs/Edit/5
-        [Authorize(Roles = "Korisnik1")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -99,13 +98,14 @@ namespace HackAtHome.Controllers
             return View(zahtjev);
         }
 
+
         [Authorize(Roles = "Korisnik1")]
         // POST: Zahtjevs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,VrstaPomoci,Opis")] Zahtjev zahtjev)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,KorisnikId,Tutor,MedicinskaPomoc,Vakcinisan,Dostava,ZnakovniJezik,Opis,CreatedByUserId,CreatedDateTime,Zavrseno")] Zahtjev zahtjev)
         {
             if (id != zahtjev.Id)
             {

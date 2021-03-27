@@ -42,12 +42,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Vakcinisan)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GeografskaSirina)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GeografskaDuzina)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -84,17 +78,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Vakcinisan)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GeografskaSirina)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GeografskaDuzina)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
+
+            @if (User.IsInRole("Volonter1") || User.IsInRole("Volonter2"))
+            {
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            }
         </tr>
 }
     </tbody>
