@@ -9,6 +9,9 @@ using AspNetCoreMVC.Models;
 using HackAtHome.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Newtonsoft.Json;
 
 namespace HackAtHome.Controllers
 {
@@ -165,6 +168,33 @@ namespace HackAtHome.Controllers
         private bool KorisnikExists(int id)
         {
             return _context.Korisnik.Any(e => e.Id == id);
+        }
+
+        public async Task<IActionResult> Poruke()
+        {
+            string apiUri = "https://www.affirmations.dev/";
+            string poruka = "";
+            string [] poruka2 = null;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(apiUri);
+
+                client.DefaultRequestHeaders.Clear();
+
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage Res = await client.GetAsync("");
+                if (Res.IsSuccessStatusCode)
+                {
+                    var response = Res.Content.ReadAsStringAsync().Result;
+                    poruka = response;
+                    poruka2 = poruka.Split(":");
+                    poruka = poruka2[poruka2.Length - 1].Substring(0, poruka2[poruka2.Length - 1].Length - 1);
+                }
+            }
+            ViewData["poruka"] =poruka;
+            return View();
+            /*var nasContext = _context.Student.Include(s => s.PrijavaStudenta).Include(s => s.Soba);
+            return View(await nasContext.ToListAsync());*/
         }
     }
 }
